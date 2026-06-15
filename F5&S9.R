@@ -247,13 +247,15 @@ save(diff, file = "CD4T整体细胞类型差异基因.Rdata")
 # ============================================= 
   
 load("CD4T细胞鉴定.Rdata")
-
 Seurat::DimPlot(CD4T,
-                group.by = "celltype",
-                cols = c("#f08e8d", 
-                         "#89c4ed", 
-                         "#8eccc7", 
-                         "#a399cc"), 
+                group.by = "RNA_snn_res.0.3",
+                cols = c(
+                  "#de9f99",  
+                  "#fcb4dc",  
+                  "#f7bf92",  
+                  "#99badf",
+                  "#f29897",
+                  "#96d0cb"), 
                 pt.size = 0.1,
                 label = T) +
   NoLegend()+ 
@@ -1124,12 +1126,16 @@ save(diff, file = "CD8T整体细胞类型差异基因.Rdata")
   
 load("~/奶牛肝脏解离单细胞3版/CD8T细胞鉴定.Rdata")
 Seurat::DimPlot(CD8T,
-                group.by = "celltype",
+                group.by = "seurat_clusters",
                 cols = c(
-                  "#c69daf",  
-                  "#8fb6b4",  
-                  "#f6cd96",
-                  "#b3b3b3"), 
+                  "#c9a1b2",  
+                  "#9bc0dc",  
+                  "#f5b394",  
+                  "#c6e2cd",
+                  "#98d2d7",
+                  "#e59589",
+                  "#98a9cc",
+                  "#b9b9b9"), 
                 pt.size = 0.1,
                 label = T) +
   NoLegend()+ 
@@ -1243,7 +1249,7 @@ plot_density(CD8T,
 
 plot_density(CD8T, 
              reduction = "umap",
-             features = c("ENTPD1"),
+             features = c("LAG3"),
              adjust = 1,  
              raster = T, 
              size = 1.2) +
@@ -1854,7 +1860,7 @@ Seurat::DimPlot(CD8T,
                          "#eeeeee",
                          "#eeeeee",
                          "#f5d09b",
-                         "#93b9b7",
+                         "#a4add0",
                          "#eeeeee"
                          ), 
                 pt.size = 0.1,
@@ -1896,7 +1902,7 @@ ggplot(merge, aes(x=peu,y=celltype,fill=celltype)) +
         axis.text = element_text(colour = 'black', size=8)) +
   scale_x_continuous(position = 'top') +
   scale_fill_manual(values = c("#c69daf", 
-                               "#8fb6b4")) 
+                               "#a4add0")) 
 
 # 加载数据 删掉数据中除了C6和CX3CR1_eff之外的亚群
 load("CD8T细胞鉴定.Rdata")
@@ -1928,6 +1934,6 @@ ggplot(merge, aes(x=peu,y=celltype,fill=celltype)) +
         axis.title = element_blank(),
         axis.text = element_text(colour = 'black', size=8)) +
   scale_x_continuous(position = 'top') +
-  scale_fill_manual(values = c("#8fb6b4", 
+  scale_fill_manual(values = c("#a4add0", 
                                "#f6cd96")) 
 

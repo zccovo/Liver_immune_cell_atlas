@@ -954,16 +954,16 @@ shapiro.test(df$CD80[df$Group == "After"])
 t.test(df$CD80[df$Group == "Before"], df$CD80[df$Group == "After"], paired = TRUE) # 6.445e-07
 
 
-# MRC1
+# CD86
 df <- dat %>%
-  dplyr::select(Sample = rowname, MRC1) %>%
+  dplyr::select(Sample = rowname, CD86) %>%
   mutate(Group = Group)  
 df
 df <- df %>%
   mutate(ID = rep(1:17, 2))
 
 set.seed(123)
-ggplot(df, aes(x = Group, y = MRC1, fill = Group)) +
+ggplot(df, aes(x = Group, y = CD86, fill = Group)) +
   geom_boxplot(width = 0.5, fill = NA, color = "black", outlier.shape = NA)+
   geom_point(aes(fill = Group), shape = 21, color = "grey", size = 3, alpha = 0.85) +
   geom_line(aes(group = ID), color = "grey", alpha = 0.6) +
@@ -977,20 +977,20 @@ ggplot(df, aes(x = Group, y = MRC1, fill = Group)) +
     axis.text.y = element_text(size = 14, color = "black", angle = 90, hjust = 0.5, vjust = 0.5)
   )
 
-shapiro.test(df$MRC1[df$Group == "Before"])
-shapiro.test(df$MRC1[df$Group == "After"])
-t.test(df$MRC1[df$Group == "Before"], df$MRC1[df$Group == "After"], paired = TRUE) # 0.02936
+shapiro.test(df$CD86[df$Group == "Before"])
+shapiro.test(df$CD86[df$Group == "After"])
+t.test(df$CD86[df$Group == "Before"], df$CD86[df$Group == "After"], paired = TRUE) # 0.02936
 
-# MSR1
+# CD68
 df <- dat %>%
-  dplyr::select(Sample = rowname, MSR1) %>%
+  dplyr::select(Sample = rowname, CD68) %>%
   mutate(Group = Group)  
 df
 df <- df %>%
   mutate(ID = rep(1:17, 2)) 
 
 set.seed(123)
-ggplot(df, aes(x = Group, y = MSR1, fill = Group)) +
+ggplot(df, aes(x = Group, y = CD68, fill = Group)) +
   geom_boxplot(width = 0.5, fill = NA, color = "black", outlier.shape = NA)+
   geom_point(aes(fill = Group), shape = 21, color = "grey", size = 3, alpha = 0.85) +
   geom_line(aes(group = ID), color = "grey", alpha = 0.6) +
@@ -1005,9 +1005,9 @@ ggplot(df, aes(x = Group, y = MSR1, fill = Group)) +
   )
 dev.off()
 
-shapiro.test(df$MSR1[df$Group == "Before"])
-shapiro.test(df$MSR1[df$Group == "After"])
-t.test(df$MSR1[df$Group == "Before"], df$MSR1[df$Group == "After"], paired = TRUE) # 0.0002783
+shapiro.test(df$CD68[df$Group == "Before"])
+shapiro.test(df$CD68[df$Group == "After"])
+t.test(df$CD68[df$Group == "Before"], df$CD68[df$Group == "After"], paired = TRUE) # 0.0002783
 
 # FLT3
 df <- dat %>%
